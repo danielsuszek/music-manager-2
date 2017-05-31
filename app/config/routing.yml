@@ -1,3 +1,7 @@
+music_manager_manage:
+    resource: "@MusicManagerManageBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
