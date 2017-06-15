@@ -1,0 +1,17 @@
+body {
+    background-color: #FCFBE3;
+    color:            #fff;
+}
+
+.band-name {
+    font-weight: bold;
+}
+
+.list-group-item {
+    background-color: #FCFBE3;
+}
+
+picture-small {
+    width:      150px;
+    height:     150px;
+}

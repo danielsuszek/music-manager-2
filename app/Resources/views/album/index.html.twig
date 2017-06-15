@@ -1,7 +1,16 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <h1>Albums list</h1>
-
+    <div class="list-group">
+        {% for album in albums %}
+            
+            <a href="{{ path('album_show', {'id': album.id}) }}" class="list-group-item"> 
+                {{ album.getFullPathToSleevePic() }}
+                <img src="{{ album.getFullPathToSleevePic() }}" alt="" class="picture-small" />                             
+                <span class='band-name'>{{ album.name }} ({{ album.released }}) - {{ album.band.name }}</span>
+            </a>
+        {% endfor %}
+    </div>
     <table>
         <thead>
             <tr>

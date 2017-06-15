@@ -21,7 +21,7 @@ class AlbumController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $albums = $em->getRepository('MusicManagerManageBundle:Album')->findAll();
-
+//        exit(\Doctrine\Common\Util\Debug::dump($albums));
         return $this->render('album/index.html.twig', array(
             'albums' => $albums,
         ));

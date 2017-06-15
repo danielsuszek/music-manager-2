@@ -44,6 +44,7 @@ class Album
      */
     private $band;
 
+    private $imgDirectory = 'images';
 
     /**
      * Get id
@@ -191,6 +192,13 @@ class Album
     public function getBand()
     {
         return $this->band;
+    }
+    
+    public function getFullPathToSleevePic() 
+    {
+//        return $_SERVER['DOCUMENT_ROOT'] . '/music-manager' .  $this->imgDirectory . '/' . $this->getSleevePicFilename();
+//        return 'http://localhost/Projects/music-manager-2/web/images/102acb6.jpg';
+//        return $_SERVER["SERVER_NAME"] . __DIR__;
     }
     
     public function __toString() 
