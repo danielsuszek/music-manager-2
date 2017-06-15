@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Bands list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for band in bands %}
+            <tr>
+                <td><a href="{{ path('band_show', { 'id': band.id }) }}">{{ band.id }}</a></td>
+                <td>{{ band.name }}</td>
+                <td>{{ band.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('band_show', { 'id': band.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('band_edit', { 'id': band.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('band_new') }}">Create a new band</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Album</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ album.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ album.name }}</td>
+            </tr>
+            <tr>
+                <th>Released</th>
+                <td>{{ album.released }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ album.description }}</td>
+            </tr>
+            <tr>
+                <th>Rate</th>
+                <td>{{ album.rate }}</td>
+            </tr>
+            <tr>
+                <th>Sleevepicfilename</th>
+                <td>{{ album.sleevePicFilename }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('album_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('album_edit', { 'id': album.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

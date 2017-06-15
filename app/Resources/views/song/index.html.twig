@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Songs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Length</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for song in songs %}
+            <tr>
+                <td><a href="{{ path('song_show', { 'id': song.id }) }}">{{ song.id }}</a></td>
+                <td>{{ song.title }}</td>
+                <td>{{ song.length }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('song_show', { 'id': song.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('song_edit', { 'id': song.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('song_new') }}">Create a new song</a>
+        </li>
+    </ul>
+{% endblock %}

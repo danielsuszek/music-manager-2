@@ -1,0 +1,44 @@
+MusicManager\ManageBundle\Entity\Album:
+    type: entity
+    table: album
+    indexes:
+        IDX_39986E4349ABEB17:
+            columns:
+                - band_id
+    id:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 100
+            nullable: false
+        released:
+            type: integer
+            nullable: true
+        description:
+            type: string
+            length: 255
+            nullable: true
+        rate:
+            type: integer
+            nullable: false
+        sleevePicFilename:
+            type: string
+            length: 255
+            nullable: true
+            column: sleeve_pic_filename
+    manyToOne:
+        band:
+            targetEntity: MusicManager\ManageBundle\Entity\Band
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                band_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

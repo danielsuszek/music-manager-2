@@ -1,0 +1,33 @@
+MusicManager\ManageBundle\Entity\Song:
+    type: entity
+    table: song
+    indexes:
+        IDX_33EDEEA11137ABCF:
+            columns:
+                - album_id
+    id:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            length: 255
+            nullable: false
+        length:
+            type: string
+            length: 12
+            nullable: true
+    manyToOne:
+        album:
+            targetEntity: MusicManager\ManageBundle\Entity\Album
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                album_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

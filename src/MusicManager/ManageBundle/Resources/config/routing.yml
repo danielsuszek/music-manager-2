@@ -1,3 +1,15 @@
+music_manager_manage_album:
+    resource: "@MusicManagerManageBundle/Resources/config/routing/album.yml"
+    prefix:   /album
+
+music_manager_manage_band:
+    resource: "@MusicManagerManageBundle/Resources/config/routing/band.yml"
+    prefix:   /band
+
+music_manager_manage_sond:
+    resource: "@MusicManagerManageBundle/Resources/config/routing/song.yml"
+    prefix:   /song
+
 music_manager_manage_homepage:
     path:     /
     defaults: { _controller: MusicManagerManageBundle:Default:index }

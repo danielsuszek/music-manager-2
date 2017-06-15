@@ -1,0 +1,19 @@
+MusicManager\ManageBundle\Entity\Band:
+    type: entity
+    table: band
+    id:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 150
+            nullable: false
+        description:
+            type: string
+            length: 255
+            nullable: false
+    lifecycleCallbacks: {  }

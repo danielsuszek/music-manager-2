@@ -1,0 +1,24 @@
+song_index:
+    path:     /
+    defaults: { _controller: "MusicManagerManageBundle:Song:index" }
+    methods:  GET
+
+song_show:
+    path:     /{id}/show
+    defaults: { _controller: "MusicManagerManageBundle:Song:show" }
+    methods:  GET
+
+song_new:
+    path:     /new
+    defaults: { _controller: "MusicManagerManageBundle:Song:new" }
+    methods:  [GET, POST]
+
+song_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MusicManagerManageBundle:Song:edit" }
+    methods:  [GET, POST]
+
+song_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MusicManagerManageBundle:Song:delete" }
+    methods:  DELETE
