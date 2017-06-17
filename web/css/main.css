@@ -11,7 +11,7 @@ body {
     background-color: #FCFBE3;
 }
 
-picture-small {
+.picture-small {
     width:      150px;
     height:     150px;
 }
