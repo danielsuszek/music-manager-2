@@ -1,9 +1,16 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <h1>Albums list</h1>
+    <h1 class="list-album-header">LISTA ALBUMÓW</h1>
+    <div class="row padding-btn">
+        <div class="col-sm-12">
+            <div class="text-center">
+                <a href="{{ path('album_new') }}"><button class="btn btn-primary" id="singlebutton">Dodaj album</button></a>                          
+            </div>
+        </div>
+    </div>
     <div class="list-group">
         {% for album in albums %}
-            
+
             <a href="{{ path('album_show', {'id': album.id}) }}" class="list-group-item"> 
                 <img src="{{ upload_dir }}{{ album.sleevePicFilename() }}" alt="" class="picture-small" />                             
                 <span class='band-name'>{{ album.name }} ({{ album.released }}) - {{ album.band.name }}</span>
@@ -23,26 +30,26 @@
             </tr>
         </thead>
         <tbody>
-        {% for album in albums %}
-            <tr>
-                <td><a href="{{ path('album_show', { 'id': album.id }) }}">{{ album.id }}</a></td>
-                <td>{{ album.name }}</td>
-                <td>{{ album.released }}</td>
-                <td>{{ album.description }}</td>
-                <td>{{ album.rate }}</td>
-                <td>{{ album.sleevePicFilename }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('album_show', { 'id': album.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('album_edit', { 'id': album.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
+            {% for album in albums %}
+                <tr>
+                    <td><a href="{{ path('album_show', { 'id': album.id }) }}">{{ album.id }}</a></td>
+                    <td>{{ album.name }}</td>
+                    <td>{{ album.released }}</td>
+                    <td>{{ album.description }}</td>
+                    <td>{{ album.rate }}</td>
+                    <td>{{ album.sleevePicFilename }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('album_show', { 'id': album.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('album_edit', { 'id': album.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 

@@ -1,5 +1,5 @@
 body {
-    background-color: #FCFBE3;
+    background-color: #FCFBE3; #vanilia-cream-color
     color:            #fff;
 }
 
@@ -14,4 +14,16 @@ body {
 .picture-small {
     width:      150px;
     height:     150px;
+}
+
+.list-album-header {
+    margin:             0;
+    padding:            15px;
+    color:              #000;    
+    background-color:   #FCFBE3;
+    text-align:         center;    
+}
+
+.padding-btn {
+    padding-bottom: 15px;
 }
