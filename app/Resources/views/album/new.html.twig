@@ -1,15 +1,68 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <h1>Album creation</h1>
+    <div class="form-container">
+    <h1 class="text-center">Dodawanie albumu</h1>
+    <form action="{{ path('album_new') }}" class="form-horizontal" method="post" {{ form_enctype(form) }}>        
+        <div id="add-album" class="col-xs-6">
+            <div class="text-center">
+                <h3><a href="{{ path('album_index') }}">Powrót</a></h3>
+            </div>
 
-    {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <div class="form-group">
+                {{ form_label(form.name, 'Nazwa albumu', { 'label_attr': {'class': 'col-xs-2'} }) }}
+                 <div class="col-xs-10">
+                {{ form_widget(form.name) }}
+                 </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.band, 'Nazwa zespołu', { 'label_attr': {'class': 'col-xs-2'} }) }}
+                 <div class="col-xs-10">
+                {{ form_widget(form.band) }}
+                 </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.released, 'Rok wydania', { 'label_attr': {'class': 'col-xs-3'} }) }}
+                <div class="col-xs-3">
+                    {{ form_widget(form.released) }}
+                </div>
+                {{ form_label(form.rate, 'Ocena', { 'label_attr': {'class': 'col-xs-3'} }) }}
+                <div class="col-xs-3">
+                    {{ form_widget(form.rate) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.description, 'opis', { 'label_attr': {'class': 'col-xs-2'} }) }}
+                 <div class="col-xs-10">
+                {{ form_widget(form.description) }}
+                 </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.sleevePicFilename, 'Obrazek', { 'label_attr': {'class': 'col-xs-2'} }) }}
+                 <div class="col-xs-10">
+                {{ form_widget(form.sleevePicFilename) }}
+                 </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="text-center">
+                      {{ form_widget(form.save, { 'label': 'Dodaj album' }) }}
+                    </div>
+                  </div>
+                </div>
+            </div>                 
+
+        </div>
+
+{#    {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Create" />
     {{ form_end(form) }}
+#}
 
-    <ul>
-        <li>
-            <a href="{{ path('album_index') }}">Back to the list</a>
-        </li>
-    </ul>
+        {{ form_widget(form._token) }}
+        
+    </form>
+</div>
 {% endblock %}
