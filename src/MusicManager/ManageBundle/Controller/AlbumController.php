@@ -5,6 +5,7 @@ namespace MusicManager\ManageBundle\Controller;
 use MusicManager\ManageBundle\Entity\Album;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Album controller.
@@ -38,6 +39,19 @@ class AlbumController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $album->getSleevePicFilename();
+//            exit(\Doctrine\Common\Util\Debug::dump($album));            
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            $file->move(
+                $this->getParameter('upload_dir_src'),
+                $fileName
+            );            
+//            exit(\Doctrine\Common\Util\Debug::dump($this->getParameter('upload_dir_src')));            
+            
+            $album->setSleevePicFilename($fileName);
+//            exit(\Doctrine\Common\Util\Debug::dump($album));                        
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($album);
             $em->flush();
@@ -71,11 +85,36 @@ class AlbumController extends Controller
      */
     public function editAction(Request $request, Album $album)
     {
-        $deleteForm = $this->createDeleteForm($album);
-        $editForm = $this->createForm('MusicManager\ManageBundle\Form\AlbumType', $album);
-        $editForm->handleRequest($request);
+        $filename = $album->getSleevePicFilename();
 
+        
+        $deleteForm = $this->createDeleteForm($album);
+//                $album->setSleevePicFilename(
+//            new File($this->getParameter('upload_dir_src') . '/' . $album->getSleevePicFilename())
+//        );
+        $file = new File($this->getParameter('upload_dir_src') . '/' . $album->getSleevePicFilename());
+        $editForm = $this->createForm('MusicManager\ManageBundle\Form\AlbumType', $album);
+
+        
+        
+        $editForm->handleRequest($request);
+//        exit(\Doctrine\Common\Util\Debug::dump($file->getFilename()));                                        
+//        exit(\Doctrine\Common\Util\Debug::dump($album->getSleevePicFilename()));                                
+//        exit(\Doctrine\Common\Util\Debug::dump($album));                            
+//            exit(\Doctrine\Common\Util\Debug::dump($album->getSleevePicFilename()));                                
+        
+        $album->setSleevePicFilename($file);
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+              
+//            exit(\Doctrine\Common\Util\Debug::dump($album->getSleevePicFilename()->getFilename()));    
+            
+            
+            
+            $filename = $album->getSleevePicFilename()->getFilename();
+            $album->setSleevePicFilename($filename);
+            
+//            exit(\Doctrine\Common\Util\Debug::dump($album));                                
+            
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('album_edit', array('id' => $album->getId()));
@@ -83,7 +122,7 @@ class AlbumController extends Controller
 
         return $this->render('album/edit.html.twig', array(
             'album' => $album,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }

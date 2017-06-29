@@ -13,7 +13,15 @@ class AlbumType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('released')->add('description')->add('rate')->add('sleevePicFilename')->add('band');
+        $builder->add('name')
+                ->add('released')
+                ->add('description')
+                ->add('rate')
+                ->add('sleevePicFilename', 'file', [
+                    'required' => false,
+                    'data_class' => null
+                ])
+                ->add('band');
         
         $builder->add('save', 'submit', array('label' => 'Dodaj album'));
     }
