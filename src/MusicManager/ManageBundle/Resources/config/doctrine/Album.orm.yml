@@ -49,3 +49,4 @@ MusicManager\ManageBundle\Entity\Album:
                     referencedColumnName: id
             orphanRemoval: false
     lifecycleCallbacks: {  }
+    repositoryClass: MusicManager\ManageBundle\Entity\AlbumRepository
