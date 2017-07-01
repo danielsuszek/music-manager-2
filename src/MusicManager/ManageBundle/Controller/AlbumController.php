@@ -89,29 +89,40 @@ class AlbumController extends Controller
 
         
         $deleteForm = $this->createDeleteForm($album);
+//        exit(\Doctrine\Common\Util\Debug::dump($album));                                    
 //                $album->setSleevePicFilename(
 //            new File($this->getParameter('upload_dir_src') . '/' . $album->getSleevePicFilename())
 //        );
         $file = new File($this->getParameter('upload_dir_src') . '/' . $album->getSleevePicFilename());
-        $editForm = $this->createForm('MusicManager\ManageBundle\Form\AlbumType', $album);
+//        exit(\Doctrine\Common\Util\Debug::dump($album));                                    
 
+        $editForm = $this->createForm('MusicManager\ManageBundle\Form\AlbumType', $album);
         
-        
+
         $editForm->handleRequest($request);
 //        exit(\Doctrine\Common\Util\Debug::dump($file->getFilename()));                                        
 //        exit(\Doctrine\Common\Util\Debug::dump($album->getSleevePicFilename()));                                
 //        exit(\Doctrine\Common\Util\Debug::dump($album));                            
-//            exit(\Doctrine\Common\Util\Debug::dump($album->getSleevePicFilename()));                                
+
+        $album->setSleevePicFilename($file);                
         
-        $album->setSleevePicFilename($file);
+//        exit(\Doctrine\Common\Util\Debug::dump($album->getSleevePicFilename()));                                        
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-              
+//        exit(\Doctrine\Common\Util\Debug::dump($editForm['name']->getData()));                                
+//              $fileName = $editForm['sleevePicFilename']->getData()->getFilename();
+              $file = $editForm['sleevePicFilename']->getData();
+              $fileName = md5(uniqid()).'.'.$file->guessExtension();
+//        exit(\Doctrine\Common\Util\Debug::dump($fileName));    
+            $file->move(
+                $this->getParameter('upload_dir_src'),
+                $fileName
+            );         
 //            exit(\Doctrine\Common\Util\Debug::dump($album->getSleevePicFilename()->getFilename()));    
             
             
             
-            $filename = $album->getSleevePicFilename()->getFilename();
-            $album->setSleevePicFilename($filename);
+//            $filename = $album->getSleevePicFilename()->getFilename();
+            $album->setSleevePicFilename($fileName);
             
 //            exit(\Doctrine\Common\Util\Debug::dump($album));                                
             
