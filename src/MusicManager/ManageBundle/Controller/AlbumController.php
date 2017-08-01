@@ -92,18 +92,16 @@ class AlbumController extends Controller
         $file = new File($this->getParameter('upload_dir_src') . '/' . $album->getSleevePicFilename());
 
         $editForm = $this->createForm('MusicManager\ManageBundle\Form\AlbumType', $album);
->>>>>>> test-edit
+
         $editForm->handleRequest($request);
 
         $album->setSleevePicFilename($file);                
         
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
-=======
             if ($editForm['sleevePicFilename']->getData() !== null) {
                 $file = $editForm['sleevePicFilename']->getData();
                 $fileName = md5(uniqid()).'.'.$file->guessExtension();
->>>>>>> test-edit
                 $file->move(
                     $this->getParameter('upload_dir_src'),
                     $fileName
@@ -114,7 +112,6 @@ class AlbumController extends Controller
                 $filename = $album->getSleevePicFilename()->getFilename();
                 $album->setSleevePicFilename($filename);
             }
->>>>>>> test-edit
             
             $this->getDoctrine()->getManager()->flush();
 
