@@ -40,17 +40,19 @@ class AlbumController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $album->getSleevePicFilename();
-//            exit(\Doctrine\Common\Util\Debug::dump($album));            
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-
-            $file->move(
-                $this->getParameter('upload_dir_src'),
-                $fileName
-            );            
-//            exit(\Doctrine\Common\Util\Debug::dump($this->getParameter('upload_dir_src')));            
             
-            $album->setSleevePicFilename($fileName);
-//            exit(\Doctrine\Common\Util\Debug::dump($album));                        
+            if ($file !== null) {
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+                $file->move(
+                    $this->getParameter('upload_dir_src'),
+                    $fileName
+                );            
+
+                $album->setSleevePicFilename($fileName);
+            } else {
+                $album->setSleevePicFilename('brak_obrazka.jpg');
+            }
             
             $em = $this->getDoctrine()->getManager();
             $em->persist($album);
