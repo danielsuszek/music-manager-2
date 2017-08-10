@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8ffa032ad6ce6bfc5414fc8ced42e28a",
-    "content-hash": "354eb067f29b3f836aed387962bb89a3",
+    "hash": "a8b229026b4e7d1fe2ff2df83bad16b9",
+    "content-hash": "33283ad618450d8d676c8bb23de5b2e8",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1895,16 +1895,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.8.20",
+            "version": "v2.8.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "bbe1eae0c213e45da9fb0c6abb43aff415a3dcdd"
+                "reference": "17002cbb4be8b3b0d6516defe4ed839ad459994b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/bbe1eae0c213e45da9fb0c6abb43aff415a3dcdd",
-                "reference": "bbe1eae0c213e45da9fb0c6abb43aff415a3dcdd",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/17002cbb4be8b3b0d6516defe4ed839ad459994b",
+                "reference": "17002cbb4be8b3b0d6516defe4ed839ad459994b",
                 "shasum": ""
             },
             "require": {
@@ -2028,7 +2028,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-05-01 16:14:31"
+            "time": "2017-05-29 19:15:13"
         },
         {
             "name": "twig/twig",

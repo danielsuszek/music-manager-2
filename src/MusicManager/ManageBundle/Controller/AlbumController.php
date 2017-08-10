@@ -6,6 +6,8 @@ use MusicManager\ManageBundle\Entity\Album;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 /**
  * Album controller.
@@ -87,8 +89,6 @@ class AlbumController extends Controller
      */
     public function editAction(Request $request, Album $album)
     {
-        $filename = $album->getSleevePicFilename();
-        
         $deleteForm = $this->createDeleteForm($album);
 
         $file = new File($this->getParameter('upload_dir_src') . '/' . $album->getSleevePicFilename());
@@ -111,8 +111,8 @@ class AlbumController extends Controller
 
                 $album->setSleevePicFilename($fileName);
             } else {
-                $filename = $album->getSleevePicFilename()->getFilename();
-                $album->setSleevePicFilename($filename);
+                // set sleevePicFilename as strig - now is File type
+                $album->setSleevePicFilename($album->getSleevePicFilename()->getFilename());
             }
             
             $this->getDoctrine()->getManager()->flush();
@@ -135,13 +135,20 @@ class AlbumController extends Controller
     {
         $form = $this->createDeleteForm($album);
         $form->handleRequest($request);
-
+        
+        $fs = new Filesystem();
+        $sleevePicFilename = $album->getSleevePicFilename();
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($album);
             $em->flush();
         }
-
+        if (file_exists($this->getParameter('upload_dir_src') . '/' . $sleevePicFilename)
+                && $sleevePicFilename !== 'brak_obrazka.jpg') {
+            $fs->remove($this->getParameter('upload_dir_src') . '/' . $sleevePicFilename);
+        }
+        
         return $this->redirectToRoute('album_index');
     }
 
