@@ -29,7 +29,7 @@ MusicManager\ManageBundle\Entity\Song:
             targetEntity: Album
             cascade: {  }
             mappedBy: null
-            inversedBy: null
+            inversedBy: songs
             joinColumns:
                 album_id:
                     referencedColumnName: id

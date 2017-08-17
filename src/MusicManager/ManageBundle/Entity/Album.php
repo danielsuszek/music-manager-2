@@ -3,6 +3,7 @@
 namespace MusicManager\ManageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Album
@@ -44,6 +45,14 @@ class Album
      */
     private $band;
 
+    
+    private $songs;
+    
+    public function __construct() 
+    {
+        $this->songs = new ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -190,6 +199,11 @@ class Album
     public function getBand()
     {
         return $this->band;
+    }
+    
+    public function getSongs() 
+    {
+        return $this->songs;
     }
     
     public function __toString() 

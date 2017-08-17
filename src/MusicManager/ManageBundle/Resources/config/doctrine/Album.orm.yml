@@ -48,5 +48,9 @@ MusicManager\ManageBundle\Entity\Album:
                 band_id:
                     referencedColumnName: id
             orphanRemoval: false
+    oneToMany:
+        songs:
+            targetEntity: Song
+            mappedBy: album            
     lifecycleCallbacks: {  }
     repositoryClass: MusicManager\ManageBundle\Entity\AlbumRepository
