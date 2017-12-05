@@ -12,4 +12,4 @@ music_manager_manage_sond:
 
 music_manager_manage_homepage:
     path:     /
-    defaults: { _controller: MusicManagerManageBundle:Album:index }
+    defaults: { _controller: MusicManagerManageBundle:HomePage:index }
