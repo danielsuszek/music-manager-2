@@ -1,17 +1,77 @@
-body {
+/*body {
     background-color: #FCFBE3; #vanilia-cream-color
     color:            #fff;
+}*/
+body {
+    background-color: #000;
+    color:            #ddd;
 }
 
+a {
+    color: #ddd;
+    
+    border: 0;
+    text-decoration: none;
+    outline: none;
+}
+
+ /*unvisited link*/ 
+a:link {
+    color: #ddd;
+    border: 0;
+}
+
+/*visited link*/ 
+a:visited {
+    color: #ddd;
+    border: 0;
+    text-decoration: none;
+}
+
+/*mouse over link*/ 
+a:hover {
+    color: #ddd;
+    text-decoration: none;    
+    border: 0;
+}
+
+/*selected link*/ 
+a:active {
+    color: #ddd;
+    border: 0;
+} 
+
+a:focus {
+    border: 0;
+    text-decoration: none;
+}
+
+div.album:hover {
+    background-color:#222;
+    border: 0;
+}
+.left-right-border {
+    border-left: 1px dotted #fff;
+    border-right: 1px dotted #fff;
+}
+
+.test-border {
+    border: 1px dotted #fff;
+}
+/*.vanilia-background {
+    background-color: #FCFBE3;
+}*/
+.main-header {
+    min-height: 200px;
+    border-bottom: 1px dotted #ddd;
+}
 .band-name {
     font-weight: bold;
 }
 
-.list-group-item {
-    background-color: #FCFBE3;
-}
-
 .picture-small {
+    border: 1px dotted #fff;
+    margin:     10px;
     width:      150px;
     height:     150px;
 }
@@ -24,6 +84,9 @@ body {
     text-align:         center;    
 }
 
-.padding-btn {
-    padding-bottom: 15px;
+.padding-25 {
+    padding: 25px;
+}
+.project-name {
+    border: 1px dotted #000;
 }

@@ -1,20 +1,39 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <h1 class="list-album-header">LISTA ALBUMÓW</h1>
-    <div class="row padding-btn">
-        <div class="col-sm-12">
-            <div class="text-center">
-                <a href="{{ path('album_new') }}"><button class="btn btn-primary" id="singlebutton">Dodaj album</button></a>                          
+    <div class="container left-right-border">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-center test-border padding-25">LISTA ALBUMÓW</h2>
             </div>
         </div>
-    </div>
-    <div class="list-group">
-        {% for album in albums %}
-
-            <a href="{{ path('album_show', {'id': album.id}) }}" class="list-group-item"> 
-                <img src="{{ upload_dir }}{{ album.sleevePicFilename() }}" alt="" class="picture-small" />                             
-                <span class='band-name'>{{ album.name }} ({{ album.released }}) - {{ album.band.name }}</span>
-            </a>
-        {% endfor %}
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="text-center padding-25">
+                    <a href="{{ path('album_new') }}"><button class="btn btn-primary btn-lg" id="singlebutton">Dodaj album</button></a>                          
+                </div>
+            </div>
+        </div>
+{#        <div class="row padding-btn">
+            <div class="col-sm-12">
+                <div class="text-center">
+                    <a href="{{ path('album_new') }}"><button class="btn btn-primary" id="singlebutton">Dodaj album</button></a>                          
+                </div>
+            </div>
+        </div>
+#}        
+        <div class="row">
+            <div class="col-xs-12">
+                {% for album in albums %}
+                    
+                        <a href="{{ path('album_show', {'id': album.id}) }}"> 
+                            <div class="album">
+                                <img src="{{ upload_dir }}{{ album.sleevePicFilename() }}" alt="" class="picture-small" />                             
+                                <span class='band-name'>{{ album.name }} ({{ album.released }}) - {{ album.band.name }}</span>
+                            </div>
+                        </a>
+                    
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}
