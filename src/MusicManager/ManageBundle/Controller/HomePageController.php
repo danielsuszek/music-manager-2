@@ -11,7 +11,12 @@ class HomePageController extends Controller
 //        return $this->render('MusicManagerManageBundle:HomePage:index.html.twig', array(
 //        ));
         return $this->render('homepage/index.html.twig');
-
     }
+    
+    public function testBootstrapAction() 
+    {
+        return $this->render('homepage/testBootstrap.html.twig');
+    }
+    
 
 }

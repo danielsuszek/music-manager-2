@@ -13,3 +13,7 @@ music_manager_manage_sond:
 music_manager_manage_homepage:
     path:     /
     defaults: { _controller: MusicManagerManageBundle:HomePage:index }
+    
+music_manager_manage_homepage_testBootstrap:    
+    path:     /testBootstrap
+    defaults: { _controller: MusicManagerManageBundle:HomePage:testBootstrap }
