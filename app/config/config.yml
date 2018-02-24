@@ -9,6 +9,7 @@ imports:
 parameters:
     locale: en
     upload_dir_src: '%kernel.root_dir%/../web/images'
+    
 #    upload_dir_src: /home/daniel/Projects/music-manager-2/web/images
 framework:
     #esi: ~
