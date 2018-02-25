@@ -9,7 +9,7 @@ imports:
 parameters:
     locale: en
     upload_dir_http: 'http://localhost/Projects/music-manager-2/web/images/'
-# IT DOES NOT WORK --> upload_dir_src: /home/daniel/Projects/music-manager-2/web/images
+# IT DOES NOT WORK --> upload_dir_http: /home/daniel/Projects/music-manager-2/web/images/
     
 #    upload_dir_src: /home/daniel/Projects/music-manager-2/web/images
 framework:
