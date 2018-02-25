@@ -25,3 +25,6 @@ monolog:
             level: debug
         console:
             type: console
+parameters:
+    locale: en
+    upload_dir_src: 'http://dsuszek1.ayz.pl/images/'

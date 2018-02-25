@@ -8,7 +8,8 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    upload_dir_src: '%kernel.root_dir%/../web/images'
+    upload_dir_http: 'http://localhost/Projects/music-manager-2/web/images/'
+# IT DOES NOT WORK --> upload_dir_src: /home/daniel/Projects/music-manager-2/web/images
     
 #    upload_dir_src: /home/daniel/Projects/music-manager-2/web/images
 framework:
