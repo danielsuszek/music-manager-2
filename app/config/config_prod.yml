@@ -27,4 +27,4 @@ monolog:
             type: console
 parameters:
     locale: en
-    upload_dir_src: 'http://dsuszek1.ayz.pl/images/'
+    upload_dir_http: 'http://dsuszek1.ayz.pl/images/'
