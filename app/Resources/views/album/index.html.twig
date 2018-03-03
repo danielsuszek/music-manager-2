@@ -27,7 +27,7 @@
                     
                         <a href="{{ path('album_show', {'id': album.id}) }}"> 
                             <div class="album">
-                                <img src="{{ upload_dir }}{{ album.sleevePicFilename() }}" alt="" class="picture-small" />                             
+                                <img src="{{ upload_dir }}{{ album.sleevePicFilename() }}" alt="" class="picture-big" />                             
                                 <span class='band-name'>{{ album.name }} ({{ album.released }}) - {{ album.band.name }}</span>
                             </div>
                         </a>

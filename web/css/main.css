@@ -76,6 +76,13 @@ div.album:hover {
     height:     150px;
 }
 
+.picture-big {
+    border: 1px dotted #fff;
+    margin:     10px;
+    width:      600px;
+    height:     600px;
+}
+
 .list-album-header {
     margin:             0;
     padding:            15px;
