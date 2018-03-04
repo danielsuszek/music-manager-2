@@ -79,8 +79,8 @@ div.album:hover {
 .picture-big {
     border: 1px dotted #fff;
     margin:     10px;
-    width:      600px;
-    height:     600px;
+    width:      80%;
+    height:     80%;
 }
 
 .list-album-header {
