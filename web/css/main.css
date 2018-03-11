@@ -45,10 +45,18 @@ a:focus {
     border: 0;
     text-decoration: none;
 }
-
-div.album:hover {
+a:hover {
     background-color:#222;
     border: 0;
+}
+
+.album {
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.album:hover {
+       background-color:#222;
 }
 .left-right-border {
     border-left: 1px dotted #fff;
@@ -67,6 +75,7 @@ div.album:hover {
 }
 .band-name {
     font-weight: bold;
+    padding:     1%;
 }
 
 .picture-small {
@@ -78,9 +87,15 @@ div.album:hover {
 
 .picture-big {
     border: 1px dotted #fff;
-    margin:     10px;
-    width:      80%;
-    height:     80%;
+    /*margin:     10px;*/
+    margin: auto 0;
+    width:      60%;
+    height:     60%;
+}
+
+.height-20-vh {
+    /* height of the view port */
+    height: 20vh;
 }
 
 .list-album-header {
@@ -92,8 +107,9 @@ div.album:hover {
 }
 
 .padding-25 {
-    padding: 25px;
+    padding-top: 25px;
 }
 .project-name {
     border: 1px dotted #000;
 }
+
