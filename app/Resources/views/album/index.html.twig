@@ -26,16 +26,16 @@
                 {% for album in albums %}
                     <div class="row album">
                         <a href="{{ path('album_show', {'id': album.id}) }}"> 
-                        
-                            <div class="col-xs-12 col-md-7 text-center">
+                            <div class="col-md-3"></div>
+                            <div class="col-xs-12 col-md-3 text-center">
                                 <img src="{{ upload_dir }}{{ album.sleevePicFilename() }}" class="picture-big" alt=""/>                             
                             </div>
-                            <div class="col-xs-12 col-md-5 text-center">
-                                <div class="visible-lg visible-md height-20-vh"></div>
-                                <div class='band-name'>{{ album.name }} ({{ album.released }})</div>
-                                <div>{{ album.band.name }}</div>
+                            <div class="col-xs-12 col-md-3 text-center">
+                                <div class="visible-lg visible-md height-15-vh"></div>
+                                <div class='band-name'><h2>{{ album.name }} ({{ album.released }})</h2></div>
+                                <div><h3>{{ album.band.name }}</h3></div>
                             </div>
-                            
+                            <div class="col-md-3"></div>
                         </a>
                     </div>        
                 {% endfor %}
